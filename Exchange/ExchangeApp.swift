@@ -9,12 +9,10 @@ import SwiftUI
 
 @main
 struct ExchangeApp: App {
-    let persistenceController = PersistenceController.shared
-
+    let echangeFactory = EchangeFactory(networking: Networking())
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            echangeFactory.createListEchangeView()
         }
     }
 }
